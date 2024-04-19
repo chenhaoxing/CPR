@@ -1,0 +1,43 @@
+# ------ root_path/dataset_name ------
+root_path: '/datasets/VLM_Adapt/'
+prompt_path: '/ossfs/workspace/CPR/gpt3_prompts/'
+
+# ------ Load Cache and Features ------
+load_cache: False
+load_pre_feat: False
+
+# load_cache: True
+# load_pre_feat: True
+
+
+# ------ Hyperparamters ------
+search_hp: True
+# search_hp: False
+
+search_scale: [50, 80, 80]
+search_step: [200, 60, 60]
+
+init_beta: 1
+init_alpha: 1.17
+
+#feat_num: 800
+training_free_feat_num: 1024
+training_feat_num: 1024
+w_training_free: [0.6, 0.4]
+w_training: [0.2, 0.8]
+
+# ------ Basic Config ------
+dataset: 'sun397'
+shots: 16
+backbone: 'ViT-B-16'
+subsample: 'all'
+lr: 0.002
+augment_epoch: 10
+train_epoch: 10
+
+# shots: 16
+# backbone: 'RN50'
+# subsample: 'all'
+# lr: 0.002
+# augment_epoch: 10
+# train_epoch: 200
