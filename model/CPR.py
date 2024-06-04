@@ -16,7 +16,7 @@ import json
 class AutoPromptModel(nn.Module):
     def __init__(self, cfg, nums, visual_proto_emb, classnames, clip_model):
         super(AutoPromptModel, self).__init__()
-        self.prompt_learner = PromptLearner(cfg, classnames, clip_model, "a photo of a")
+        self.prompt_learner = PromptLearner(cfg, classnames, clip_model, "")
         self.tokenized_prompts = self.prompt_learner.tokenized_prompts
         self.text_encoder = TextEncoder(clip_model)
 
