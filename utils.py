@@ -44,9 +44,7 @@ def clip_classifier(cfg, classnames, template, clip_model, prompt_path=None):
     if os.path.exists(cfg['cache_dir'] + "/text_weights_cupl_t.pt"):
         print('**************** used CUPL !! *******************')
         return torch.load(cfg['cache_dir'] + "/text_weights_cupl_t.pt")
-    else:
-        raise NotImplementedError
-    
+
     f = open(prompt_path)
     prompts = json.load(f)
 
@@ -72,12 +70,11 @@ def clip_classifier(cfg, classnames, template, clip_model, prompt_path=None):
     return clip_weights
 
 
-def pre_load_clip_weight(cfg):
+def pre_load_clip_weight(cfg, classnames, template, clip_model, prompt_path):
     if os.path.exists(cfg['cache_dir'] + "/text_weights_cupl_t.pt"):
         print('**************** used CUPL !! *******************')
         return torch.load(cfg['cache_dir'] + "/text_weights_cupl_t.pt")
     else:
-        # 
         print('**************** Processing self-defined prompt !! *******************')
         clip_weights = clip_classifier(cfg, classnames, template, clip_model, prompt_path=None)
         return clip_weights
