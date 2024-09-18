@@ -205,7 +205,7 @@ class BaseModel:
     def __init__(self, cfg, classnames,  templete, cupl_path, clip_model):
         self.cfg = cfg
         self.clip_model = clip_model
-        prompt_path = ''
+        self.prompt_path = cupl_path
         self.clip_weights = pre_load_clip_weight(cfg, classnames, template, clip_model, prompt_path)
         self.cache_keys, self.cache_values = build_cache_model(cfg, clip_model)
         self.prototypes = self.clip_weights.T
